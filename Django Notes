@@ -1,0 +1,71 @@
+WEB APPLICATIONS
+
+Web Applications
+    - a web application is an application program that is stored on a remote server and delivered over the Internet through a browser
+      interface
+    - a website can have one or many web apps each performing a unique specific task
+    - for a web app to operate, it needs a web server, application server, and a database
+    - 2 types of requests
+        1) get requestion - initially when webpage is loaded (that gets information from the database)
+            - webserver -> webpage
+        2) post request - update information by sending to the database to post it
+            - webpage -> webserver
+
+Benefits of Web apps
+    - allowing multiple users access to the same version of an app
+    - no need for local machine installation
+    - accessible across multiple platforms
+    - typically not browser dependent
+    - does not use up local resources such as memory or computing power
+
+What is Django?
+    - Django is a popular python library that is used to build web apps
+    - a server-side web framework that encompasses all the elements that can help build interactive website
+    - Learning Log (what we are creating): an online journal system that lets you keep track of information you've learned about particular
+      topics
+
+Model
+    - where we write the code to define all of our "tables" (objects)
+View
+    - interacts with the webpage and database
+
+Create the Django Project
+    - django-admin startproject learning_log .
+        - the dot at the end of the command creates the new project with a directory structure that will make it easy to deploy the app to
+          a server
+
+Creating the database
+    - py manage.py migrate
+        - the migrate command is used to modify a database
+        - when it is used for the first time, it creates a new SQLite database (db.sqlite3)
+            - SQLite is a database that runs off of a single file
+            - ideal for simple apps with no maintenance or setup requires
+
+Viewing the Project
+    - py manage.py runserver
+        - this starts a development server
+    - the URL http://127.0.0.1:8000/ indicates that the project is listening for requests on port 8000 on your computer (localhost)
+        - localhost: refers to a server that only processes requests on your system; it doesn’t allow anyone else to see the pages you’re 
+          developing
+
+Starting an App
+    - py manage.py startapp AppName
+        - This command creates the structure for an app
+        - It will create a directory called learning_logs which has 
+          several files in it
+
+Defining Models
+    - A model tells Django how to work with the data that will be stored in the app
+    - use models.py to define the data we want to manage in our app
+    - For our project we want the user to be able to create a number of topics for their journal (learning_log). 
+    - So each entry will have a topic, text and timestamp
+    - Code-wise, a model is just a class; it has attributes and methods
+
+Storing the information
+    - makemigrations: this command creates a migration file that instructs the database to store any data associated with any new models
+    - migrate: this command applies the changes in the migration file previously created
+
+The Django Admin Site
+    - Create a super user that has access to all the information stored on the site
+        - username: admin
+        - password: password

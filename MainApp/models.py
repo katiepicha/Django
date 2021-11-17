@@ -13,4 +13,10 @@ class Entry(models.Model):
     text = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
 
-    
+    class Meta:
+        verbose_name_plural = 'entries'
+        # it allows us to set a special attribute telling Django to use 'Entries' when it needs to refer to more than one entry
+        # without this, Django would refer to multiple entries as 'Entrys'
+
+    def __str__(self):
+        return f"{self.text[:50]}..."

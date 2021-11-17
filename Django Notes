@@ -69,3 +69,12 @@ The Django Admin Site
     - Create a super user that has access to all the information stored on the site
         - username: admin
         - password: password
+
+Making Pages
+    - Making web pages with Django consists of three stages:
+        - defining URLs
+            - each URL maps to a view
+        - writing views
+            - the view function retrieves and processes the data needed for that pages 
+        - writing templates: contains the overall structure of the page
+

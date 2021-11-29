@@ -81,9 +81,11 @@ Making Pages
 Adding a New Page
     1) add the URL to the urls file
     2) define a topics function in the views file
-    3) create the topics template that inherits from the html
+    3) create the topics template that inherits from the base html
 
 Template
     - template tags: {% %}
     - template variables: {{}}
 
+Accessing attributes
+    - you can use dot notation to access attributes and view on the website

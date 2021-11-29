@@ -78,3 +78,12 @@ Making Pages
             - the view function retrieves and processes the data needed for that pages 
         - writing templates: contains the overall structure of the page
 
+Adding a New Page
+    1) add the URL to the urls file
+    2) define a topics function in the views file
+    3) create the topics template that inherits from the html
+
+Template
+    - template tags: {% %}
+    - template variables: {{}}
+

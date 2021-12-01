@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import TopicForm
+from .forms import TopicForm, EntryForm
 from .models import Topic
 
 # Create your views here.
@@ -36,3 +36,20 @@ def new_topic(request):
 
     context = {'form': form} # dictionary that allows us to pass data into our template
     return render(request, 'MainApp/new_topic.html', context)
+
+def new_entry(request, topic_id): # need to use the same variable from the URLs file (we use topic_id in the urls.py file)
+    topic = Topic.objects.get(id=topic_id)
+    if request.method != 'POST':
+        form = EntryForm() # loading an empty form if get request
+    else:
+        form = EntryForm(data=request.POST) # if a post request, get the data from the webpage
+
+        if form.is_valid():
+            new_entry = form.save(commit=False) # not ready to write to database quite yet
+            new_entry.topic = topic
+            new_entry.save()
+
+            return redirect('MainApp:topic', topic_id=topic_id)
+
+    context = {'form': form, 'topic':topic} # dictionary that allows us to pass data into our template
+    return render(request, 'MainApp/new_entry.html', context)

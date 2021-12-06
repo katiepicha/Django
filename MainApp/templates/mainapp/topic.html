@@ -9,7 +9,7 @@
     <li>
         <p>{{e.text |linebreaks}}</p>
         <p>{{e.date_added |date:'M d, Y H:i'}}</p>
-        <a href="{% url 'MainApp:edit_entry' topic.id %}">Edit entry</a>
+        <a href="{% url 'MainApp:edit_entry' e.id %}">Edit entry</a>
     </li>
     {% empty %}
     <li> There are no entries for this topic yet. </li>

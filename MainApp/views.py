@@ -37,7 +37,9 @@ def new_topic(request):
         form = TopicForm(data=request.POST) # if a post request, get the data from the webpage
 
         if form.is_valid():
-            form.save()
+            new_topic = form.save(commit=False)
+            new_topic.owner = request.user
+            new_topic.save()
 
             return redirect('MainApp:topics')
 
